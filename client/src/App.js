@@ -23,9 +23,9 @@ const App = () => (
     <br />
     <Container>
       <Switch>
-        <ProtectedRoute exact path="/home" component={Home} />
-        <ProtectedRoute path="/about" component={About} />
-        <ProtectedRoute path="/map" component={Map} />
+        <Route exact path="/home" component={Home} />
+        <Route path="/about" component={About} />
+        <Route path="/map" component={Map} />
         <Route exact path="/" component={Lander} />
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
