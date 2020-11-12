@@ -1,7 +1,17 @@
 
 .landing{
-  margin-top: 10%;
+  padding: 10%;
+  font-family: 'Permanent Marker', cursive !important;
   text-align: center;
+  background-image: url(https://live.staticflickr.com/65535/50594611186_a4e7e2ba15_b.jpg)!important;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+ 
+  
+}
+h1,h2,h3{
+  font-family: 'Noto Sans', sans-serif !important;
 }
 
 .App {
