@@ -49,10 +49,14 @@ const MainInput = styled(Form.Control)`
 
 const StyledSearchText = styled.div`
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+  justify-content: center;
   width: 100%;
   font-family: 'Noto Sans', sans-serif;
+  color: white;
+  text-shadow: 1px 1px #f7436a, 
+                2px 2px #f7436a, 
+                3px 3px #f7436a;
+}
   font-style: normal;
   font-weight: bold;
   font-size: 40px;
