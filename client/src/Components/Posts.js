@@ -1,7 +1,8 @@
 import React from 'react';
-import {Card} from "react-bootstrap"
+import {Row,Col} from "react-bootstrap"
 import styled from "styled-components"
 import {Link} from "react-router-dom"
+import {FaHeart} from "react-icons/fa"
 
 const Posts = () => {
 
@@ -17,6 +18,14 @@ return(
           Buy Sell Rent Trade
           <br />
           Area: Snowbird
+          <Row style={{justifyContent:"center"}}>
+            <Col>
+              <FaHeart/>
+            </Col>
+            <Col>
+            </Col>
+          </Row>
+          
         </PostMainBodyText>
  </StyledPost>
 
@@ -30,7 +39,7 @@ const StyledPost = styled.div`
   box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.35);
   border-radius: 30px;
   width: 200px;
-  height: 200px;
+  height: 250px;
   margin-bottom: 2rem;
 `;
 

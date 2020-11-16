@@ -1,22 +1,32 @@
 import React,{useState} from 'react';
-import {Form} from 'react-bootstrap';
+import {Form,Container,Row,Col} from 'react-bootstrap';
 import { useHistory } from "react-router-dom";
 import styled from "styled-components"
 import SnowStorm from "react-snowstorm"
+import ReactCardFlip from 'react-card-flip';
 
 
 const Lander = () => {
   const [query, setQuery] = useState("");
   const history = useHistory();
+  const [isFlipped, setIsFlipped] = useState(false)
 
   const handleSubmit = (e) => {
     e.preventDefault();
     history.push(`/search?name=${query}`);
   };
 
+  const handleFlip = () =>{
+  setIsFlipped(!isFlipped)
+  }
+
+
+
   return(
+  
   <div >
     <SnowStorm />
+    <Container>
     <div className="landing">
       <Form onSubmit={handleSubmit}>
         <Form.Group>
@@ -25,7 +35,7 @@ const Lander = () => {
               Buy. Sell. Trade. & Rent. 
             </StyledSearchText>
             <StyledSearchBody>
-            Find all your winter gear the your next ski destination. Search the ski destination to view avaliable listings in that area
+            Find all your winter gear at your next ski destination. Search the ski destination to view avaliable listings in that area
             </StyledSearchBody>
           </Form.Label>
           <MainInput
@@ -39,6 +49,33 @@ const Lander = () => {
         </Form.Group>
       </Form>
       </div>
+     
+      <ReactCardFlip isFlipped = {isFlipped} flipDirection="vertical">
+      <Wrapper style={{borderRadius:"25px"}}  onClick={handleFlip}>
+        <Row>
+         <h1 style={{color:"white",fontFamily: "Permanent Marker !important"}}>How to use BumSkis</h1>
+        </Row>
+
+      </Wrapper>
+      <Wrapper style={{borderRadius:"25px"}}  onClick={handleFlip}>
+        <Row>
+          <Col>
+          <h1 style={{color:"white"}}>1.</h1>
+          <p style={{color:"white",fontFamily: "Permanent Marker"}}>Create an accont with us</p>
+          </Col>
+          <Col>
+          <h1 style={{color:"white"}}>2.</h1>
+          <p style={{color:"white",fontFamily: "Permanent Marker"}}>Make a post about your gear</p>
+          </Col>
+          <Col>
+          <h1 style={{color:"white"}}>3.</h1>
+          <p style={{color:"white",fontFamily: "Permanent Marker"}}>Wait for the money to come in!</p>
+          </Col>
+        </Row>
+
+      </Wrapper>
+      </ReactCardFlip>
+      </Container>
   </div>
   )
 }
@@ -63,10 +100,7 @@ const StyledSearchBody = styled.div`
  
 `;
 
-const Row = styled.div`
-  display: flex;
-  padding-top: 2.5% !important;
-`;
+
 
 
 
@@ -89,5 +123,24 @@ const StyledSearchText = styled.div`
   margin-bottom: 1rem;
   padding: 0 0.5rem;
 `;
+
+
+const Wrapper = styled.div`
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 150px;
+  flex-shrink: 0;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  background-image: linear-gradient(to right,#f7436a, #a3cef1);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+`;
+
+
 
 export default Lander;

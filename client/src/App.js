@@ -14,7 +14,7 @@ import Search from './Components/Search'
 
 
 import './App.css';
-import { Container } from 'react-bootstrap';
+
 
 const App = () => (
   <Fragment>
@@ -22,7 +22,7 @@ const App = () => (
     <NavBar />
     <FetchUser>
     <br />
-    <Container>
+  
       <Switch>
         <Route exact path="/home" component={Home} />
         <Route path="/search" component={Search} />
@@ -32,7 +32,7 @@ const App = () => (
         <Route exact path="/login" component={Login} />
         <Route component={NoMatch} />
       </Switch>
-    </Container>
+  
     </FetchUser>
   </Fragment>
 );
