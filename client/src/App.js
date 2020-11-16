@@ -10,6 +10,7 @@ import FetchUser from "./Components/FetchUser";
 import ProtectedRoute from './Components/ProtectedRoute';
 import Lander from './Components/Lander';
 import Map from './Components/Map'
+import Search from './Components/Search'
 
 
 import './App.css';
@@ -24,7 +25,7 @@ const App = () => (
     <Container>
       <Switch>
         <Route exact path="/home" component={Home} />
-        <Route path="/about" component={About} />
+        <Route path="/search" component={Search} />
         <Route path="/map" component={Map} />
         <Route exact path="/" component={Lander} />
         <Route exact path="/register" component={Register} />

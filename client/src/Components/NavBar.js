@@ -48,13 +48,10 @@ return (
 <Navbar.Collapse id="responsive-navbar-nav">
 <Nav  activeKey="/home">
 <Nav.Item>
-  <Nav.Link href="/home">Home</Nav.Link>
+  <Nav.Link href="/">Home</Nav.Link>
 </Nav.Item>
 <Nav.Item>
-  <Nav.Link href="/about">About</Nav.Link>
-</Nav.Item>
-<Nav.Item>
-  <Nav.Link href="/map">Map</Nav.Link>
+  <Nav.Link href="/search">Search</Nav.Link>
 </Nav.Item>
 <NavDropdown title="BumSkis Profile" id="basic-nav-dropdown">
 {getRightNav()}

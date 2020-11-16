@@ -1,7 +1,8 @@
 import React,{useState} from 'react';
-import {Button, Container,Form} from 'react-bootstrap';
+import {Form} from 'react-bootstrap';
 import { useHistory } from "react-router-dom";
 import styled from "styled-components"
+import SnowStorm from "react-snowstorm"
 
 
 const Lander = () => {
@@ -15,6 +16,7 @@ const Lander = () => {
 
   return(
   <div >
+    <SnowStorm />
     <div className="landing">
       <Form onSubmit={handleSubmit}>
         <Form.Group>
@@ -22,6 +24,9 @@ const Lander = () => {
             <StyledSearchText>
               Buy. Sell. Trade. & Rent. 
             </StyledSearchText>
+            <StyledSearchBody>
+            Find all your winter gear the your next ski destination. Search the ski destination to view avaliable listings in that area
+            </StyledSearchBody>
           </Form.Label>
           <MainInput
             className="form"
@@ -41,6 +46,26 @@ const Lander = () => {
 const MainInput = styled(Form.Control)`
   padding: 1.5rem;
   border-radius: 15px 50px;
+`;
+
+const StyledSearchBody = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-family: 'Noto Sans', sans-serif;
+  color: white;
+  text-shadow: 1px 1px #f7436a, 
+  2px 2px #f7436a, 
+  3px 3px #f7436a;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+ 
+`;
+
+const Row = styled.div`
+  display: flex;
+  padding-top: 2.5% !important;
 `;
 
 

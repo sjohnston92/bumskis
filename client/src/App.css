@@ -14,6 +14,7 @@ h1,h2,h3{
   font-family: 'Noto Sans', sans-serif !important;
 }
 
+
 .App {
   text-align: center;
 }
@@ -22,6 +23,10 @@ h1,h2,h3{
   height: 40vmin;
   pointer-events: none;
 }
+
+
+
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
