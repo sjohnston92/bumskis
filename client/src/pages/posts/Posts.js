@@ -8,17 +8,10 @@ import {FaHeart} from "react-icons/fa"
 const Posts = () => {
 
 
-
-
-
-
-
-
-
 return(
-
-
+  <h1>Hello</h1>
 )
+
 }
 
 const StyledPost = styled.div`

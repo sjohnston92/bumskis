@@ -1,7 +1,7 @@
 import React from 'react';
 import {Row, Col} from 'react-bootstrap';
-import Map from "./Map.js"
-import Posts from "./Posts.js"
+import Map from "../../components/Map.js"
+import Posts from "../posts/Posts.js"
 
 
 const Search = () => {
