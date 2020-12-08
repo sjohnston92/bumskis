@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  image: MyString
+  sold: false
+  price: 1
+  title: MyString
+  location: MyString
+  size: MyString
+  user: one
+
+two:
+  image: MyString
+  sold: false
+  price: 1
+  title: MyString
+  location: MyString
+  size: MyString
+  user: two
