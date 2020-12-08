@@ -1,4 +1,5 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
+import axios from "axios"
 import {Row,Col} from "react-bootstrap"
 import styled from "styled-components"
 import {Link} from "react-router-dom"
@@ -6,28 +7,16 @@ import {FaHeart} from "react-icons/fa"
 
 const Posts = () => {
 
+
+
+
+
+
+
+
+
 return(
-<StyledPost className="coffeeShopRender">
-        <PostImage url="https://images.unsplash.com/photo-1498146831523-fbe41acdc5ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" />
-        <PostTitle>
-          <Link to={`/post/post.id`}>Post Name</Link>
-        </PostTitle>
-        <PostMainBodyText>
-           $50
-          <br/> 
-          Buy Sell Rent Trade
-          <br />
-          Area: Snowbird
-          <Row style={{justifyContent:"center"}}>
-            <Col>
-              <FaHeart/>
-            </Col>
-            <Col>
-            </Col>
-          </Row>
-          
-        </PostMainBodyText>
- </StyledPost>
+
 
 )
 }
