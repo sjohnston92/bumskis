@@ -4,7 +4,6 @@ import styled from "styled-components"
 import Post from "./Post"
 
 
-
 const Posts = () => {
   const [posts, setPosts] = useState([]);
 
