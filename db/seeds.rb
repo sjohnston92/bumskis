@@ -15,10 +15,12 @@ puts "Seeding..."
 
   10.times do |p|
     post = Post.create(
+      title: Faker::Commerce.product_name,
       body: Faker::Hipster.paragraph,
       available: true,
       location: "Salt Lake, UT",
       price: 69,
+      size: rand("S", "M", "L"),
     )
   end
 end
