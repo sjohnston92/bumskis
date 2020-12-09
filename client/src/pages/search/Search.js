@@ -9,10 +9,15 @@ const Search = () => {
 return(
     <>
     <Row>
-        <Col>
+        <Col sm={8} style={{justifyContent:"center"}}>
+        <Row>
         <Posts />
+        <Posts />
+        <Posts />
+        <Posts />
+        </Row>
         </Col>
-        <Col>
+        <Col sm={4}>
             <Map />
         </Col>
     </Row>
