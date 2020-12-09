@@ -2,6 +2,6 @@
 
 ## Buy,Sell,Trade, and Rent your winter gear
 
-![bumski](./client/src/Components/images/1x/bumskiLogo.png)
+![bumski](./client/src/components/images/bumskiLogo.png)
 
 
