@@ -18,10 +18,6 @@ return(
         </Row>
         </Col>
         <Col sm={4}>
-        <Col>
-        <Posts />
-        </Col>
-        <Col>
             <Map />
         </Col>
     </Row>
