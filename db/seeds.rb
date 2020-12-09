@@ -21,6 +21,7 @@ puts "Seeding..."
       location: "Salt Lake, UT",
       price: 69,
       size: rand("S", "M", "L"),
+      user_id: user.id,
     )
   end
 end
