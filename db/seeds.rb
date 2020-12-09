@@ -16,7 +16,7 @@ puts "Seeding..."
   10.times do |p|
     post = Post.create(
       body: Faker::Hipster.paragraph,
-      sold: false,
+      available: true,
       location: "Salt Lake, UT",
       price: 69,
     )

@@ -1,4 +1,5 @@
 class Api::PostsController < ApplicationController
+before_action :set_post, only: [:show, :update, :destroy]
 
   def index
     render json: Post.all
@@ -36,7 +37,7 @@ class Api::PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:sample).permit(:user_id, :size, :location, :title, :price, :sold, :image)
+    params.require(:sample).permit(:user_id, :size, :location, :title, :price, :available, :image)
   end
 
 end
