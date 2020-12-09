@@ -6,16 +6,26 @@ import Post from "./Post";
 const Posts = () => {
   const [posts, setPosts] = useState([]);
 
-  //Started the render/read function wont work till we get a get request going with the backend
-  const renderPost = () => {
-    return posts.map((post) => <Post />);
+  const getPosts = async () => {
+    try {
+      let res = await axios.get(`/api/posts/`);
+      setPosts(res.data);
+    } catch (err) {
+      console.log(err.response);
+      alert("Error: Failed to get posts");
+    }
   };
 
-  return (
-    <>
-      <Post />
-    </>
-  );
+  useEffect(() => {
+    getPosts();
+  }, []);
+
+  //Started the render/read function wont work till we get a get request going with the backend
+  const renderPost = () => {
+    return posts.map((post) => <Post key={post.id} post={post} />);
+  };
+
+  return <>{renderPost()}</>;
 };
 
 const StyledPost = styled.div`
