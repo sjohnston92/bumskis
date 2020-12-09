@@ -1,36 +1,30 @@
-import React from 'react';
-import {Row, Col} from 'react-bootstrap';
-import Map from "../../components/Map.js"
-import Posts from "../posts/Posts.js"
-
+import React from "react";
+import { Row, Col } from "react-bootstrap";
+import Map from "../../components/Map.js";
+import Posts from "../posts/Posts.js";
 
 const Search = () => {
-
-return(
+  return (
     <>
-    <Row>
-        <Col sm={8} style={{justifyContent:"center"}}>
-        <Row>
-        <Posts />
-        <Posts />
-        <Posts />
-        <Posts />
-        </Row>
+      <Row>
+        <Col sm={8} style={{ justifyContent: "center" }}>
+          <Row>
+            <Posts />
+            <Posts />
+            <Posts />
+            <Posts />
+          </Row>
         </Col>
         <Col sm={4}>
-        <Col>
-        <Posts />
+          {/* <Col> */}
+          <Posts />
         </Col>
         <Col>
-            <Map />
+          <Map />
         </Col>
-    </Row>
+      </Row>
     </>
-)
-}
-
-
-
-
+  );
+};
 
 export default Search;
