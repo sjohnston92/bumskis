@@ -1,15 +1,24 @@
 import React,{useState,useEffect} from 'react';
 import axios from "axios"
-import {Row,Col} from "react-bootstrap"
 import styled from "styled-components"
-import {Link} from "react-router-dom"
-import {FaHeart} from "react-icons/fa"
+import Post from "./Post"
+
 
 const Posts = () => {
+  const [posts, setPosts] = useState([]);
 
+
+//Started the render/read function wont work till we get a get request going with the backend
+  const renderPost = () => {
+    return posts.map((post) => (
+      <Post/>
+    ));
+  };
 
 return(
-  <h1>Hello</h1>
+  <>
+  <Post />
+  </>
 )
 
 }
