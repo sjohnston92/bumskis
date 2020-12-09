@@ -29,42 +29,4 @@ const StyledPost = styled.div`
   margin-bottom: 2rem;
 `;
 
-const PostImage = styled.div`
-  width: 200px;
-  height: 135px;
-  flex-shrink: 0;
-  border-radius: 30px 30px 0 0;
-  background-image: url(${(props) => props.url});
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-`;
-
-const PostTitle = styled.div`
-  font-family: Open Sans;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 12px;
-  line-height: 20px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  padding-top: 10px;
-  padding-left: 15px;
-  padding-right: 20px;
-`;
-
-const PostMainBodyText = styled.div`
-  font-family: Open Sans;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 12px;
-  line-height: 20px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  padding-left: 15px;
-  padding-right: 20px;
-`;
-
 export default Posts;
