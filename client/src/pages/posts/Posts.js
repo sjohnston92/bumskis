@@ -1,27 +1,22 @@
-import React,{useState,useEffect} from 'react';
-import axios from "axios"
-import styled from "styled-components"
-import Post from "./Post"
-
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import styled from "styled-components";
+import Post from "./Post";
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
 
-
-//Started the render/read function wont work till we get a get request going with the backend
+  //Started the render/read function wont work till we get a get request going with the backend
   const renderPost = () => {
-    return posts.map((post) => (
-      <Post/>
-    ));
+    return posts.map((post) => <Post />);
   };
 
-return(
-  <>
-  <Post />
-  </>
-)
-
-}
+  return (
+    <>
+      <Post />
+    </>
+  );
+};
 
 const StyledPost = styled.div`
   display: flex;
@@ -33,6 +28,5 @@ const StyledPost = styled.div`
   height: 250px;
   margin-bottom: 2rem;
 `;
-
 
 export default Posts;
