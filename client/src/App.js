@@ -23,7 +23,7 @@ const App = () => (
       <Switch>
         <Route exact path="/home" component={Home} />
         <Route path="/search" component={Search} />
-        <Route exact path="/postid" component={PostView} />
+        <Route exact path="/posts/:id" component={PostView} />
         <Route path="/map" component={Map} />
         <Route exact path="/" component={Lander} />
         <Route exact path="/register" component={Register} />
