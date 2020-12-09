@@ -1,6 +1,6 @@
 import React from 'react';
 import {Row, Col} from 'react-bootstrap';
-import Map from "../../components/Map.js"
+import Map from "../../Components/Map.js"
 import Posts from "../posts/Posts.js"
 
 
@@ -18,7 +18,7 @@ return(
         </Row>
         </Col>
         <Col sm={4}>
-        <Col>
+        {/* <Col> */}
         <Posts />
         </Col>
         <Col>
