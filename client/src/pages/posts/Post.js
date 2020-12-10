@@ -3,17 +3,16 @@ import styled from "styled-components";
 import { Row, Col } from "react-bootstrap";
 import { FaHeart, FaCommentDots } from "react-icons/fa";
 import { useHistory } from "react-router-dom";
-import PostView from "./PostView";
 
 const Post = ({ post }) => {
   const history = useHistory();
 
   const routeChange = () => {
-    history.push(`/post/${post.id}`);
+    history.push(`post/${post.id}`);
   };
 
   const heartPost = () => {
-    console.log("heart");
+    console.log({ post });
   };
 
   const viewComments = () => {
