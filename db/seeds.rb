@@ -17,13 +17,23 @@ puts "Seeding..."
     post = Post.create(
       title: Faker::Commerce.product_name,
       # body: Faker::Hipster.paragraph,
-      available: true,
+      sold: true,
       location: "Salt Lake, UT",
       price: 69,
       size: rand(1..3),
       user_id: user.id,
     )
+    5.times do |c|
+    comment = Comment.create(
+      post_id: p,
+      body: Faker::Quotes::Shakespeare.hamlet_quote,
+      price: 23 + c,
+      user_id: rand(1..5),
+    )
   end
+  end
+
+  
 end
 
 puts  "Done Seeding"
