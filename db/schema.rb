@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2020_12_08_172416) do
 
   create_table "posts", force: :cascade do |t|
     t.string "image"
-    t.boolean "available"
+    t.boolean "sold"
     t.integer "price"
     t.string "title"
     t.string "location"
