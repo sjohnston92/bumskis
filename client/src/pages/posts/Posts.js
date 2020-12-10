@@ -26,7 +26,6 @@ const Posts = () => {
   };
 
   return <>{renderPost()}</>;
-
 };
 
 const StyledPost = styled.div`

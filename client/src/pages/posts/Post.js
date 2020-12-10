@@ -8,7 +8,7 @@ const Post = ({ post }) => {
   const history = useHistory();
 
   const routeChange = () => {
-    history.push("/postid");
+    history.push(`post/${post.id}`);
   };
 
   const heartPost = () => {
