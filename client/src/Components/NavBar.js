@@ -15,7 +15,7 @@ const getRightNav = () => {
     return (
       <>
       <NavDropdown.Item
-        onClick={() => console.log("hello")}> User Info
+        href="/profile"> User Profile
       </NavDropdown.Item>
       <NavDropdown.Item
         onClick={() => 

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import Comments from "../comments/Comments";
-import { Row, Col,Container } from "react-bootstrap";
+import { Row, Col,Container, Button } from "react-bootstrap";
 
 const PostView = ({ match }) => {
   const [post, setPost] = useState({});
@@ -32,6 +32,8 @@ const PostView = ({ match }) => {
           <h2>${post.price}</h2>
           <h3>Size:{post.size}</h3>
           <h3>Description:{post.body}</h3>
+          <Button>Edit </Button>
+          <Button>Delete </Button>
         </Col>
       </Row>
       <Row>

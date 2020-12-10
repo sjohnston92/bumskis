@@ -8,6 +8,12 @@ import styled from "styled-components"
 const Comment = ({comment}) => {
   
 
+const commentDelete = () => {
+  console.log('delete')
+}
+
+
+
 return(
   <>
   <h4>We need to bring in user information
@@ -16,7 +22,7 @@ return(
   <h5>{comment.price}</h5>
   <p>{comment.body}</p>
   <Button>Edit </Button>
-  <Button> Delete </Button>
+  <Button onClick={commentDelete}> Delete </Button>
   </>
 )
 
