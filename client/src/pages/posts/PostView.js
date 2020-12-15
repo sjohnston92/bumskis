@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import Comments from "../comments/Comments";
-import { Row, Col,Container } from "react-bootstrap";
+import { Row, Col,Container, Dropdown, Modal} from "react-bootstrap";
 
-const PostView = ({ match }) => {
+const PostView = ({ match,history}) => {
   const [post, setPost] = useState({});
+  const [comments,setComments] = useState({})
 
   const getPost = async () => {
     try {
@@ -16,6 +17,18 @@ const PostView = ({ match }) => {
       alert("Error: Failed to get post");
     }
   };
+
+  const deletePost = (id) => {
+   axios
+   .delete(`/api/posts/{$id}`,{params:{id:id}})
+   .then((res)=> {
+     history.pushState("search")
+   })
+  }
+
+
+
+
 
   useEffect(() => {
     getPost();
@@ -32,11 +45,22 @@ const PostView = ({ match }) => {
           <h2>${post.price}</h2>
           <h3>Size:{post.size}</h3>
           <h3>Description:{post.body}</h3>
+          <Dropdown>
+            <Dropdown.Toggle variant="success" id="dropdown-basic">
+              Action
+            </Dropdown.Toggle>
+
+          <Dropdown.Menu>
+            <Dropdown.Item>Sold</Dropdown.Item>
+            <Dropdown.Item>Edit</Dropdown.Item>
+            <Dropdown.Item onClick={deletePost}>Delete</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
         </Col>
       </Row>
       <Row>
         <CommentArea>
-          <Comments />
+          <Comments  post={match.params.id}/>
         </CommentArea>
       </Row>
     </Container>
@@ -51,8 +75,6 @@ const CommentArea = styled.div`
   transition: 0.3s;
   box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.35);
   border-radius: 30px;
-  width: 80%;
-  height: 350px;
   margin: 1rem;
 `;
 
