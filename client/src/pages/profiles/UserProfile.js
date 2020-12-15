@@ -12,21 +12,6 @@ const UserProfile =()=>{
   const handleClose = () => setShow(false)
   const handleShow = ()  => setShow(true)
 
-
-
-
-
-  const addPost = (post) => {
-    Axios
-      .post(`/api/posts/`, post)
-      .then((res) => {
-        setPost(res.data);
-      })
-      .catch((error) => {
-        alert("error in submitting post");  
-      });
-  }
-
   return(
     <>
     <Button onClick={handleShow}> Add a Post </Button>
@@ -35,10 +20,9 @@ const UserProfile =()=>{
         <Modal.Title>PostForm</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <PostForm />
+        <PostForm hide={handleClose}/>
       </Modal.Body>
       <Modal.Footer>
-      <Button addPost={addPost} userID={user}> Add Post</Button>
         <Button variant="secondary" onClick={handleClose}>Cancel</Button>
       </Modal.Footer> 
 
