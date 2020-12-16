@@ -18,21 +18,21 @@ const Comments = ({post}) => {
     }
   }
 
+
+
   useEffect(()=>{
     getComments()
   },[])
 
 
+  const handleDeleteComment = (id) => {
+    setComments(comments.filter((comment)=> comment.id !== id))
+  }
 
 const renderComments = () => {
-  return comments.map((comment) => <Comment key={comment.id} comment={comment}/>)
+  return comments.map((comment) => <Comment key={comment.id} post={post} comment={comment} deleteComment={handleDeleteComment}/>)
 
 };
-
-const handleDeleteComment = (id) => {
-  setComments(comments.filter((comment)=> comment.id !== id))
-}
-
 
 return (
 

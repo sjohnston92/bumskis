@@ -32,6 +32,7 @@ const PostView = ({ match,history }) => {
 
 
   const handlePostDelete = () => {
+    debugger;
     axios
       .delete(`/api/posts/${match.params.id}`)
       .then((res) => {
