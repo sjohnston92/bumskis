@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import Comments from "../comments/Comments";
+
 import { Row, Col,Container, Button ,Modal} from "react-bootstrap";
 import PostForm from "./PostForm"
+
 
 const PostView = ({ match,history }) => {
   const [post, setPost] = useState({});
@@ -83,6 +85,7 @@ const PostView = ({ match,history }) => {
               </Button>
             </Modal.Footer>
           </Modal> 
+
         </Col>
       </Row>
       <Row>

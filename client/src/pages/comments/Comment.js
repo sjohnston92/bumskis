@@ -3,6 +3,7 @@ import axios from "axios";
 import {Button,Modal} from "react-bootstrap";
 import styled from "styled-components";
 
+
 const Comment = ({comment,deleteComment,post}) => {
   const [show, setShow] = useState(false);
 
@@ -29,7 +30,6 @@ return(
 
   <h5>{comment.price}</h5>
   <p>{comment.body}</p>
-  <Button>Edit </Button>
   <Button onClick={handleShow}>Delete</Button>
   <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -44,6 +44,7 @@ return(
           </Button>
         </Modal.Footer>
       </Modal>
+
   </>
 )
 

@@ -219,7 +219,6 @@ const PostForm = (props) => {
     
     </form> */}
 
-
     </>
   )
   //Add Post fields here to create state
