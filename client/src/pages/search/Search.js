@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col,Button } from "react-bootstrap";
 import Map from "../../components/Map.js";
 import Posts from "../posts/Posts.js";
 
@@ -9,9 +9,6 @@ const Search = () => {
       <Row>
         <Col sm={8} style={{ justifyContent: "center" }}>
           <Row>
-            <Posts />
-            <Posts />
-            <Posts />
             <Posts />
           </Row>
         </Col>

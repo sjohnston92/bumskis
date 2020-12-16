@@ -2,10 +2,22 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import Comments from "../comments/Comments";
-import { Row, Col,Container, Button } from "react-bootstrap";
 
-const PostView = ({ match }) => {
+import { Row, Col,Container, Button ,Modal} from "react-bootstrap";
+import PostForm from "./PostForm"
+
+
+const PostView = ({ match,history }) => {
   const [post, setPost] = useState({});
+  const [showEditPostForm,setEditShowpostForm] = useState(false)
+  const [showSure,setShowSure] = useState(false)
+
+
+  const handleEditPostFormClose = () => setEditShowpostForm(false)
+  const handleEditPostFormOpen = () => setEditShowpostForm(true)
+
+  const handleSureClose = () => setShowSure(false)
+  const handleSureOpen = () => setShowSure(true)
 
   const getPost = async () => {
     try {
@@ -16,6 +28,17 @@ const PostView = ({ match }) => {
       alert("Error: Failed to get post");
     }
   };
+
+
+
+  const handlePostDelete = () => {
+    axios
+      .delete(`/api/posts/${match.params.id}`)
+      .then((res) => {
+        history.push("/search")
+        }
+      )};
+  
 
   useEffect(() => {
     getPost();
@@ -32,8 +55,37 @@ const PostView = ({ match }) => {
           <h2>${post.price}</h2>
           <h3>Size:{post.size}</h3>
           <h3>Description:{post.body}</h3>
-          <Button>Edit </Button>
-          <Button>Delete </Button>
+         <Button onClick={handleEditPostFormOpen}>Edit Post</Button> 
+             <Modal show={showEditPostForm} onHide={handleEditPostFormClose}>
+              <Modal.Header closeButton>
+                <Modal.Title>Edit your Post!</Modal.Title>
+             </Modal.Header>
+            <Modal.Body>
+                <PostForm hide={handleEditPostFormClose} />
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleEditPostFormClose}>
+                Cancel
+              </Button>
+            </Modal.Footer>
+            </Modal> 
+          <Button onClick={handleSureOpen}>Delete </Button>
+          <Modal show={showSure} onHide={handleSureClose}>
+              <Modal.Header closeButton>
+             </Modal.Header>
+            <Modal.Body>
+               Are you sure you want to delete your Post? 
+            </Modal.Body>
+            <Modal.Footer>
+            <Button variant="danger" onClick={handlePostDelete}>
+                Yes, Delete
+              </Button>
+              <Button variant="secondary" onClick={handleSureClose}>
+                Cancel
+              </Button>
+            </Modal.Footer>
+          </Modal> 
+
         </Col>
       </Row>
       <Row>

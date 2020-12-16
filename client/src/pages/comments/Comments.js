@@ -8,8 +8,6 @@ import Comment from './Comment'
 const Comments = ({post}) => {
   const [comments, setComments] = useState([]);
   
-
-
   const getComments = async() => {
     try{
       let res = await axios.get(`/api/posts/${post}/comments`);
@@ -20,7 +18,6 @@ const Comments = ({post}) => {
     }
   }
 
-
   useEffect(()=>{
     getComments()
   },[])
@@ -29,8 +26,12 @@ const Comments = ({post}) => {
 
 const renderComments = () => {
   return comments.map((comment) => <Comment key={comment.id} comment={comment}/>)
+
 };
 
+const handleDeleteComment = (id) => {
+  setComments(comments.filter((comment)=> comment.id !== id))
+}
 
 
 return (
