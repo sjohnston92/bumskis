@@ -1,14 +1,14 @@
 class Api::CommentsController < ApplicationController
-  before_action :authenticate_user!, only: [ :create, :update, :destroy, ]
-  before_action :set_post, only: [:index,:create, :destroy, :update]
-  before_action :set_comment, only: [:update, :edit, :destroy]
+  before_action :authenticate_user!, only: [ :create, :update, ]
+  before_action :set_post, only: [ :show, :index, :create, :destroy, :update ]
+  before_action :set_comment, only: [ :update, :show, :edit, :destroy ]
 
   def index
     render json: @post.comments
   end
 
   def show
-    render json: @post.comments.all
+    render json: @comment
   end
 
   def new
@@ -33,7 +33,7 @@ class Api::CommentsController < ApplicationController
   end
 
   def destroy
-    @comment.destroy
+    comment = @comment.destroy
     render json: "Deleted"
   end
 
@@ -46,7 +46,7 @@ class Api::CommentsController < ApplicationController
   end
 
   def set_comment
-    @comment = @post.find(params[:id])
+    @comment = Comment.find(params[:id])
   end
 
   def set_post

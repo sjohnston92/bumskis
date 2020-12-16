@@ -11,7 +11,6 @@ const Comment = ({comment,deleteComment,post}) => {
   const handleShow = () => setShow(true);
 
   const handleDeleteComment = () => {
-    debugger
     axios
     .delete(`/api/posts/${post}/comments/${comment.id}`)
     .then((res) =>{
@@ -22,6 +21,7 @@ const Comment = ({comment,deleteComment,post}) => {
       console.log(err)
     })
   }
+
 
 return(
   <>
