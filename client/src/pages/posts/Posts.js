@@ -1,10 +1,17 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
+import {Button,Modal,Row} from 'react-bootstrap'
 import Post from "./Post";
+import PostForm from "./PostForm"
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
+  const [showPostForm,setShowpostForm] = useState(false)
+
+
+  const handlePostFormClose = () => setShowpostForm(false)
+  const handlePostFormOpen = () => setShowpostForm(true)
 
   const getPosts = async () => {
     try {
@@ -20,12 +27,45 @@ const Posts = () => {
     getPosts();
   }, []);
 
-  //Started the render/read function wont work till we get a get request going with the backend
   const renderPost = () => {
     return posts.map((post) => <Post key={post.id} post={post} />);
   };
 
-  return <>{renderPost()}</>;
+  const addPost = (post) => {
+    setPosts([post,...posts])
+  }
+
+
+
+
+
+
+  return(
+  <>
+  <Row>
+    <Button onClick={handlePostFormOpen}>Add Post</Button>
+  <Modal show={showPostForm} onHide={handlePostFormClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Add your Listing!</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <PostForm hide={handlePostFormClose} add={addPost}/>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handlePostFormClose}>
+            Cancel
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
+      
+  </Row>
+
+  <Row>
+  {renderPost()}
+  </Row>
+  </>
+  );
 };
 
 const StyledPost = styled.div`

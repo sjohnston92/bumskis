@@ -2,11 +2,30 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import Comments from "../comments/Comments";
+<<<<<<< HEAD
 import { Row, Col,Container, Dropdown, Modal} from "react-bootstrap";
 
 const PostView = ({ match,history}) => {
   const [post, setPost] = useState({});
   const [comments,setComments] = useState({})
+=======
+
+import { Row, Col,Container, Button ,Modal} from "react-bootstrap";
+import PostForm from "./PostForm"
+
+
+const PostView = ({ match,history }) => {
+  const [post, setPost] = useState({});
+  const [showEditPostForm,setEditShowpostForm] = useState(false)
+  const [showSure,setShowSure] = useState(false)
+
+
+  const handleEditPostFormClose = () => setEditShowpostForm(false)
+  const handleEditPostFormOpen = () => setEditShowpostForm(true)
+
+  const handleSureClose = () => setShowSure(false)
+  const handleSureOpen = () => setShowSure(true)
+>>>>>>> aa38bfd3cbd092dccc494bdf005102a0457313f7
 
   const getPost = async () => {
     try {
@@ -18,6 +37,7 @@ const PostView = ({ match,history}) => {
     }
   };
 
+<<<<<<< HEAD
   const deletePost = (id) => {
    axios
    .delete(`/api/posts/{$id}`,{params:{id:id}})
@@ -29,6 +49,18 @@ const PostView = ({ match,history}) => {
 
 
 
+=======
+
+
+  const handlePostDelete = () => {
+    axios
+      .delete(`/api/posts/${match.params.id}`)
+      .then((res) => {
+        history.push("/search")
+        }
+      )};
+  
+>>>>>>> aa38bfd3cbd092dccc494bdf005102a0457313f7
 
   useEffect(() => {
     getPost();
@@ -45,6 +77,7 @@ const PostView = ({ match,history}) => {
           <h2>${post.price}</h2>
           <h3>Size:{post.size}</h3>
           <h3>Description:{post.body}</h3>
+<<<<<<< HEAD
           <Dropdown>
             <Dropdown.Toggle variant="success" id="dropdown-basic">
               Action
@@ -56,6 +89,39 @@ const PostView = ({ match,history}) => {
             <Dropdown.Item onClick={deletePost}>Delete</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
+=======
+         <Button onClick={handleEditPostFormOpen}>Edit Post</Button> 
+             <Modal show={showEditPostForm} onHide={handleEditPostFormClose}>
+              <Modal.Header closeButton>
+                <Modal.Title>Edit your Post!</Modal.Title>
+             </Modal.Header>
+            <Modal.Body>
+                <PostForm hide={handleEditPostFormClose} />
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleEditPostFormClose}>
+                Cancel
+              </Button>
+            </Modal.Footer>
+            </Modal> 
+          <Button onClick={handleSureOpen}>Delete </Button>
+          <Modal show={showSure} onHide={handleSureClose}>
+              <Modal.Header closeButton>
+             </Modal.Header>
+            <Modal.Body>
+               Are you sure you want to delete your Post? 
+            </Modal.Body>
+            <Modal.Footer>
+            <Button variant="danger" onClick={handlePostDelete}>
+                Yes, Delete
+              </Button>
+              <Button variant="secondary" onClick={handleSureClose}>
+                Cancel
+              </Button>
+            </Modal.Footer>
+          </Modal> 
+
+>>>>>>> aa38bfd3cbd092dccc494bdf005102a0457313f7
         </Col>
       </Row>
       <Row>

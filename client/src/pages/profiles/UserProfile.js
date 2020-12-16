@@ -12,10 +12,6 @@ const UserProfile =()=>{
   const handleClose = () => setShow(false)
   const handleShow = ()  => setShow(true)
 
-
-
-
-
   const addPost = (post) => {
     Axios
       .post(`/api/posts/`, post)
