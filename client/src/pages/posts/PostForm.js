@@ -23,6 +23,7 @@ const PostForm = (props) => {
         location: '',
         size: ''},
   })
+    const fakeConst = [];
 
   const addPost = (post) => {
       debugger
