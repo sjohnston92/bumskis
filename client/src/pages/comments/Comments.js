@@ -5,27 +5,42 @@ import Comment from './Comment'
 
 
 
-const Comments = () => {
+const Comments = ({post}) => {
   const [comments, setComments] = useState([]);
   
+  const getComments = async() => {
+    try{
+      let res = await axios.get(`/api/posts/${post}/comments`);
+      setComments(res.data);
+    }catch (err) {
+      console.log(err.response);
+      alert("Error: Failed to get Comments");
+    }
+  }
 
 
 
-//Started the render/read function wont work till we get a get request going with the backend
+  useEffect(()=>{
+    getComments()
+  },[])
+
+
+  const handleDeleteComment = (id) => {
+    setComments(comments.filter((comment)=> comment.id !== id))
+  }
+
 const renderComments = () => {
-  return comments.map((comment) => (
-    <Comment/>
-  ));
+  return comments.map((comment) => <Comment key={comment.id} post={post} comment={comment} deleteComment={handleDeleteComment}/>)
+
 };
 
+return (
 
-
-return(
-  <>
-  <h1>Comments</h1>
-  <Comment/>
-  </>
+<div>
+{renderComments()}
+</div>
 )
+
 
 }
 

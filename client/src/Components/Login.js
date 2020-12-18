@@ -33,7 +33,7 @@ const Login = (props) => {
         <Button variant="info"type="submit">Login</Button>
       </Form>
       <br />
-      <Button variant="success" href="/">Back</Button>
+      <Button variant="success" href="/profile">Back</Button>
     </div>
   );
 };

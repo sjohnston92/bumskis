@@ -11,6 +11,7 @@ import Lander from "./pages/home/Lander";
 import Map from "./components/Map";
 import Search from "./pages/search/Search";
 import PostView from "./pages/posts/PostView";
+import UserProfile from "./pages/profiles/UserProfile";
 
 import "./App.css";
 
@@ -23,9 +24,10 @@ const App = () => (
       <Switch>
         <Route exact path="/home" component={Home} />
         <Route path="/search" component={Search} />
-        <Route exact path="/posts/:id" component={PostView} />
+        <Route exact path="/post/:id" component={PostView} />
         <Route path="/map" component={Map} />
         <Route exact path="/" component={Lander} />
+        <Route exact path="/profile" component={UserProfile} />
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
         <Route component={NoMatch} />

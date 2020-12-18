@@ -9,7 +9,7 @@ const Post = ({ post }) => {
   const history = useHistory();
 
   const routeChange = () => {
-    history.push(`/post/${post.id}`);
+    history.push(`post/${post.id}`);
   };
 
   const heartPost = () => {
@@ -26,10 +26,10 @@ const Post = ({ post }) => {
       <PostTitle>{post.title}</PostTitle>
       <p style={{ width: "200px" }}>
         Price: ${post.price}
+        <br />
         Location:{post.location}
+        <br />
         Size:{post.size}
-        Available:{post.available}
-        {/* Body:{posts.body} */}
       </p>
       <FaRow>
         <FaHeart onClick={heartPost} />
