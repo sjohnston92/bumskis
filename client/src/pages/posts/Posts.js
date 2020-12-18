@@ -26,10 +26,6 @@ const Posts = () => {
   };
 
   return <>{renderPost()}</>;
-<<<<<<< HEAD
-=======
-
->>>>>>> 2d8bf851f08e821573a6bba3824d6f7026b11f49
 };
 
 const StyledPost = styled.div`
