@@ -22,7 +22,6 @@ const Comment = ({comment,deleteComment,post}) => {
   const handleShow = () => setShow(true);
 
   const handleDeleteComment = () => {
-    debugger
     axios
     .delete(`/api/posts/${post}/comments/${comment.id}`)
     .then((res) =>{
@@ -34,6 +33,7 @@ const Comment = ({comment,deleteComment,post}) => {
     })
   }
 >>>>>>> aa38bfd3cbd092dccc494bdf005102a0457313f7
+
 
 return(
   <>
