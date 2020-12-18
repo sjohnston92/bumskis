@@ -1,17 +1,41 @@
 import axios from 'axios';
 import React, {useContent,useState} from 'react';
 import {Form,Button} from 'react-bootstrap';
-import {AuthContext} from "../providers/AuthProvider"
 
-const CommentForm = () =>{
+const CommentForm = ({post}) =>{
   const [comment,setComment] = useState(
-    commentProp ? {price: commentProp.price, body: commentProp.body}:{price: "", body:""}
+    comment ? 
+    {price: comment.price,body: comment.body}
+    :
+    {price: "", body:""}
     )
 
 
-    const handleSubmit = (e) => {
-      console.log("submitted")
+    
+    const addComment = async() => {
+      try{
+        let res = await axios.post(`/api/posts/${post}/comments`, comment);
+        if(typeof addComment === "function") addComment(res.data);
+      }
+      catch(err){
+        alert("Oh shit, add post doesnt work")
+      }
+      }
+    
+
+
+    const editComment = async () => {
+      try{
+        let res = await axios.put(`/api/posts/${post.id}/comments/${comment.id}`, comment);
+      } 
+        catch (err){
+          alert('Oh shit, edit post doesnt work')
+      }
     }
+
+
+
+
 
 
     const handleChange = (e) => {
@@ -19,7 +43,16 @@ const CommentForm = () =>{
     }
 
 
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      if(comment){
+        editComment();
+      }else{
+        addComment();
+      }
 
+      }
+    
 
 
   return(
@@ -48,3 +81,6 @@ const CommentForm = () =>{
     </>
   )
 }
+
+
+export default CommentForm;
