@@ -32,6 +32,9 @@ const Comments = ({post}) => {
   },[])
 
 
+  const handleDeleteComment = (id) => {
+    setComments(comments.filter((comment)=> comment.id !== id))
+  }
 
   // const addComment = () => {
   //   setComments([comment,...comments])
@@ -57,6 +60,8 @@ const Comments = ({post}) => {
   };
 
 
+
+  };
 
 return (
 <>

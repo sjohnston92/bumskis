@@ -68,6 +68,7 @@ const PostView = ({ match,history }) => {
                 <Modal.Title>Edit your Post!</Modal.Title>
              </Modal.Header>
             <Modal.Body>
+
                 <PostForm post={post} edit={handleEditPost} hide={handleEditPostFormClose} />
             </Modal.Body>
             <Modal.Footer>

@@ -3,7 +3,9 @@ import React, { useContext, useState } from 'react';
 import { Form, Button, Modal } from 'react-bootstrap';
 import {AuthContext} from "../../providers/AuthProvider"
 
+
 const PostForm = ({post, hide, add,edit}) =>{
+
   const auth = useContext(AuthContext);
   const [postState, setPostState] = useState(
     post ? {
@@ -59,6 +61,7 @@ const PostForm = ({post, hide, add,edit}) =>{
       hide()
     }
  
+
 
   return(
     <>

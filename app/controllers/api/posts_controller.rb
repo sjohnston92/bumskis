@@ -1,5 +1,6 @@
 class Api::PostsController < ApplicationController
 before_action :authenticate_user!, only: [:create,:update]
+
 before_action :set_post, only: [:show, :update, :destroy]
 
   def index
@@ -38,7 +39,9 @@ before_action :set_post, only: [:show, :update, :destroy]
   end
 
   def post_params
+
     params.permit(:user_id, :size, :location, :title, :price, :image, :sold) 
+
   end
 
 end
