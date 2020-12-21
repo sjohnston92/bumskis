@@ -40,9 +40,6 @@ const Comments = ({post}) => {
   //   setComments([comment,...comments])
   // }
 
-  const handleDeleteComment = (id) => {
-    setComments(comments.filter((comment)=> comment.id !== id))
-  }
 
   // const handleEditComment = (newComment) => {
   //   const newComment = comments.map((comment) => {
@@ -61,7 +58,7 @@ const Comments = ({post}) => {
 
 
 
-  };
+
 
 return (
 <>
