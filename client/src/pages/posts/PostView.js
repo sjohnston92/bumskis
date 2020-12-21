@@ -39,8 +39,14 @@ const PostView = ({ match,history }) => {
         history.push("/search")
         }
       )};
-  
 
+  const handleEditPost = (fig) => {
+    const newPost = fig;
+    if (newPost.id === post.id)return setPost(newPost);
+    else return post;
+  }
+
+  
   useEffect(() => {
     getPost();
   }, []);
@@ -62,7 +68,7 @@ const PostView = ({ match,history }) => {
                 <Modal.Title>Edit your Post!</Modal.Title>
              </Modal.Header>
             <Modal.Body>
-                <PostForm post={post} hide={handleEditPostFormClose} />
+                <PostForm post={post} edit={handleEditPost} hide={handleEditPostFormClose} />
             </Modal.Body>
             <Modal.Footer>
               <Button variant="secondary" onClick={handleEditPostFormClose}>
