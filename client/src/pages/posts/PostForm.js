@@ -3,7 +3,9 @@ import React, { useContext, useState } from 'react';
 import { Form, Button, Modal } from 'react-bootstrap';
 import {AuthContext} from "../../providers/AuthProvider"
 
-const PostForm = ({post, hide, add}) =>{
+
+const PostForm = ({post, hide, add,edit}) =>{
+
   const auth = useContext(AuthContext);
   const [postState, setPostState] = useState(
     post ? {
@@ -23,18 +25,12 @@ const PostForm = ({post, hide, add}) =>{
     }
 );
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   addPost({ title: title, image: image, price: price, location: location, size: size, })
-  // }
 
     const handleChange = (e) => {
       setPostState({ ...postState, [e.target.name]: e.target.value });
     };
 
     const addPost = async () => {
-      console.log(postState.title)
-      debugger
       try {
         let res = await axios.post(`/api/posts`, postState);
         add(res.data)
@@ -44,10 +40,12 @@ const PostForm = ({post, hide, add}) =>{
   }
 
     const editPost = async () => {
+      
       try {
         let res = await axios.put(
-          `/api/posts/${post}`
-        );
+          `/api/posts/${post.id}`,postState);
+          edit(res.data);
+        ;
       } catch (err) {
       alert("ERROR: EDIT post doesnt work")
     }
@@ -60,11 +58,10 @@ const PostForm = ({post, hide, add}) =>{
       } else {
         addPost()
       }
+      hide()
     }
  
-  // const handleChange = (e) => {
-  //   console.log("change")
-  // }
+
 
   return(
     <>

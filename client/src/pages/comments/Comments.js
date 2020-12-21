@@ -36,10 +36,9 @@ const Comments = ({post}) => {
     setComments(comments.filter((comment)=> comment.id !== id))
   }
 
-
-const renderComments = () => {
-  return comments.map((comment) => <Comment key={comment.id} post={post} comment={comment} deleteComment={handleDeleteComment}/>)
-
+  // const addComment = () => {
+  //   setComments([comment,...comments])
+  // }
 
   const handleDeleteComment = (id) => {
     setComments(comments.filter((comment)=> comment.id !== id))
@@ -57,6 +56,10 @@ const renderComments = () => {
 
   const renderComments = () => {
     return comments.map((comment) => <Comment key={comment.id} post={post} comment={comment} deleteComment={handleDeleteComment} />)
+
+  };
+
+
 
   };
 
