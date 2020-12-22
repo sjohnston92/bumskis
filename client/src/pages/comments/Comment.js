@@ -1,25 +1,19 @@
 import React,{useState,useEffect} from 'react';
-<<<<<<< HEAD
-import axios from "axios"
-import {Button,Dropdown} from "react-bootstrap"
-import styled from "styled-components"
-
-
-
-const Comment = ({comment}) => {
-  
-
-=======
 import axios from "axios";
 import {Button,Modal} from "react-bootstrap";
 import styled from "styled-components";
+import CommentForm from "./CommentForm"
 
 
-const Comment = ({comment,deleteComment,post}) => {
+const Comment = ({comment,deleteComment,editComment,post}) => {
   const [show, setShow] = useState(false);
+  const [editShow, setEditShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const handleEditClose = () => setEditShow(false);
+  const handleEditShow = () => setEditShow(true);
 
   const handleDeleteComment = () => {
     axios
@@ -32,7 +26,6 @@ const Comment = ({comment,deleteComment,post}) => {
       console.log(err)
     })
   }
->>>>>>> aa38bfd3cbd092dccc494bdf005102a0457313f7
 
 
 return(
@@ -42,20 +35,23 @@ return(
 
   <h5>{comment.price}</h5>
   <p>{comment.body}</p>
-<<<<<<< HEAD
-  <Dropdown>
-  <Dropdown.Toggle variant="success" id="dropdown-basic">
-    More...
-  </Dropdown.Toggle>
 
-  <Dropdown.Menu>
-    <Dropdown.Item href="#/action-1">Sold</Dropdown.Item>
-    <Dropdown.Item href="#/action-2">Edit</Dropdown.Item>
-    <Dropdown.Item href="#/action-3">Delete</Dropdown.Item>
-  </Dropdown.Menu>
-</Dropdown>
-=======
   <Button onClick={handleShow}>Delete</Button>
+
+  <Button varient="warning"onClick={handleEditShow}>Edit</Button>
+  <Modal show={editShow} onHide={handleEditClose}>
+        <Modal.Header closeButton>
+        </Modal.Header>
+        <Modal.Body>
+          <CommentForm post={post} editComment={editComment}/>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleEditClose}>
+            Cancel
+          </Button>
+        </Modal.Footer>
+      </Modal>
+  <Button  varient="danger" onClick={handleShow}>Delete</Button>
   <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
         </Modal.Header>
@@ -69,7 +65,6 @@ return(
           </Button>
         </Modal.Footer>
       </Modal>
->>>>>>> aa38bfd3cbd092dccc494bdf005102a0457313f7
 
   </>
 )

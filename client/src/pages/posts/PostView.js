@@ -97,7 +97,7 @@ const PostView = ({ match,history }) => {
                 <Modal.Title>Edit your Post!</Modal.Title>
              </Modal.Header>
             <Modal.Body>
-                <PostForm hide={handleEditPostFormClose} />
+                <PostForm post={post} hide={handleEditPostFormClose} />
             </Modal.Body>
             <Modal.Footer>
               <Button variant="secondary" onClick={handleEditPostFormClose}>
