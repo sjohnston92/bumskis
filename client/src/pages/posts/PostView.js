@@ -2,13 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import Comments from "../comments/Comments";
-<<<<<<< HEAD
-import { Row, Col,Container, Dropdown, Modal} from "react-bootstrap";
-
-const PostView = ({ match,history}) => {
-  const [post, setPost] = useState({});
-  const [comments,setComments] = useState({})
-=======
 
 import { Row, Col,Container, Button ,Modal} from "react-bootstrap";
 import PostForm from "./PostForm"
@@ -25,7 +18,6 @@ const PostView = ({ match,history }) => {
 
   const handleSureClose = () => setShowSure(false)
   const handleSureOpen = () => setShowSure(true)
->>>>>>> aa38bfd3cbd092dccc494bdf005102a0457313f7
 
   const getPost = async () => {
     try {
@@ -37,7 +29,6 @@ const PostView = ({ match,history }) => {
     }
   };
 
-<<<<<<< HEAD
   const deletePost = (id) => {
    axios
    .delete(`/api/posts/{$id}`,{params:{id:id}})
@@ -49,7 +40,7 @@ const PostView = ({ match,history }) => {
 
 
 
-=======
+
 
 
   const handlePostDelete = () => {
@@ -60,9 +51,15 @@ const PostView = ({ match,history }) => {
         history.push("/search")
         }
       )};
-  
->>>>>>> aa38bfd3cbd092dccc494bdf005102a0457313f7
 
+
+  const handleEditPost = (fig) => {
+    const newPost = fig;
+    if (newPost.id === post.id)return setPost(newPost);
+    else return post;
+  }
+
+  
   useEffect(() => {
     getPost();
   }, []);
@@ -78,26 +75,14 @@ const PostView = ({ match,history }) => {
           <h2>${post.price}</h2>
           <h3>Size:{post.size}</h3>
           <h3>Description:{post.body}</h3>
-<<<<<<< HEAD
-          <Dropdown>
-            <Dropdown.Toggle variant="success" id="dropdown-basic">
-              Action
-            </Dropdown.Toggle>
-
-          <Dropdown.Menu>
-            <Dropdown.Item>Sold</Dropdown.Item>
-            <Dropdown.Item>Edit</Dropdown.Item>
-            <Dropdown.Item onClick={deletePost}>Delete</Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
-=======
          <Button onClick={handleEditPostFormOpen}>Edit Post</Button> 
              <Modal show={showEditPostForm} onHide={handleEditPostFormClose}>
               <Modal.Header closeButton>
                 <Modal.Title>Edit your Post!</Modal.Title>
              </Modal.Header>
             <Modal.Body>
-                <PostForm post={post} hide={handleEditPostFormClose} />
+
+                <PostForm post={post} edit={handleEditPost} hide={handleEditPostFormClose} />
             </Modal.Body>
             <Modal.Footer>
               <Button variant="secondary" onClick={handleEditPostFormClose}>
@@ -122,7 +107,6 @@ const PostView = ({ match,history }) => {
             </Modal.Footer>
           </Modal> 
 
->>>>>>> aa38bfd3cbd092dccc494bdf005102a0457313f7
         </Col>
       </Row>
       <Row>
