@@ -1,51 +1,55 @@
 import axios from 'axios';
-import React, {useContent,useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {Form,Button} from 'react-bootstrap';
+import {AuthContext} from "../../providers/AuthProvider";
 
-const CommentForm = ({post}) =>{
-  const [comment,setComment] = useState(
-    comment ? 
-    {price: comment.price,body: comment.body}
+const CommentForm = ({post,add,commentProp,afterUpdate}) =>{
+    const auth = useContext(AuthContext);
+  const [ comment, setComment ] = useState(
+    commentProp ? 
+    {price: commentProp.price,
+     body: commentProp.body, 
+     user_id: auth.user.id,}
     :
-    {price: "", body:""}
+    {price:"", 
+     body:"",
+     user_id: auth.user.id,}
     )
 
 
     
-    const addComment = async() => {
-      try{
-        let res = await axios.post(`/api/posts/${post}/comments`, comment);
-        if(typeof addComment === "function") addComment(res.data);
-      }
-      catch(err){
-        alert("Oh shit, add post doesnt work")
-      }
+    const addComment = async () => {
+      debugger;
+        try{
+            let res = await axios.post(`/api/posts/${post}/comments`, comment);
+            add(res.data);
+        }
+          catch(err){
+            alert("Oh shit, add comment doesn't work")
+        }
       }
     
 
 
     const editComment = async () => {
+      debugger
       try{
-        let res = await axios.put(`/api/posts/${post.id}/comments/${comment.id}`, comment);
+        let res = await axios.put(`/api/posts/${post}/comments/${commentProp.id}`, comment);
+        if(typeof afterUpdate === "function") afterUpdate(res.data);
       } 
         catch (err){
-          alert('Oh shit, edit post doesnt work')
+          alert('Oh shit, edit comment doesnt work')
       }
     }
 
 
-
-
-
-
     const handleChange = (e) => {
-      setComment({...comment,[e.target.name]:e.target.value})
+      setComment({...comment, [e.target.name]: e.target.value});
     }
-
 
     const handleSubmit = (e) => {
       e.preventDefault();
-      if(comment){
+      if(commentProp){
         editComment();
       }else{
         addComment();
@@ -68,15 +72,17 @@ const CommentForm = ({post}) =>{
       />
       </Form.Group>
       <Form.Group>
-      <Form.Label>Description</Form.Label>
+      <Form.Label>Text Area</Form.Label>
       <Form.Control
       autoFocus
+      placeholder="Leave a comment here...."
       name="body"
       value={comment.body}
       onChange={handleChange}
       />
       </Form.Group>
-      <Button type="submit">Submit</Button>
+      
+      <Button varient="success" type="submit" onClick={handleSubmit}>Submit</Button>
     </Form>
     </>
   )

@@ -40,7 +40,7 @@ return(
         <Modal.Header closeButton>
         </Modal.Header>
         <Modal.Body>
-          <CommentForm post={post} editComment={editComment}/>
+          <CommentForm post={post} commentProp={comment} editComment={editComment}/>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleEditClose}>
