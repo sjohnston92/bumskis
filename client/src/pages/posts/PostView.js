@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import Comments from "../comments/Comments";
+import CommentForm from "../comments/CommentForm"
 
 import { Row, Col,Container, Button ,Modal} from "react-bootstrap";
 import PostForm from "./PostForm"

@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import axios from "axios"
-import {Modal,Button} from 'react-bootstrap'
+import {Button} from 'react-bootstrap'
 import styled from "styled-components"
 import Comment from './Comment'
 import CommentForm from './CommentForm'
@@ -10,6 +10,7 @@ import CommentForm from './CommentForm'
 const Comments = ({post}) => {
   const [comments, setComments] = useState([]);
   const [show, setShow] = useState(false);
+  const [displayState,setDisplayState] = useState(false)
 
 
   const handleClose = () => setShow(false);
@@ -36,18 +37,18 @@ const Comments = ({post}) => {
     setComments(comments.filter((comment)=> comment.id !== id))
   }
 
-  // const addComment = () => {
-  //   setComments([comment,...comments])
-  // }
+  const addComment = (comment) => {
+    setComments([comment,...comments])
+  }
 
 
-  // const handleEditComment = (newComment) => {
-  //   const newComment = comments.map((comment) => {
-  //     if (newComment.id === comment.id) return newComment;
-  //     else return comment;
-  //   });
-  //   setComments(newComment);
-  // };
+  const handleEditComment = (c) => {
+    const newComment = comments.map((comment) => {
+      if (c.id === comment.id) return newComment;
+      else return comment;
+    });
+    setComments(c);
+  };
   
 
 
@@ -62,20 +63,9 @@ const Comments = ({post}) => {
 
 return (
 <>
-<Button variant="success" onClick={handleShow}>
-        Add a Comment
-      </Button>
-
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Body>
-          <CommentForm post={post} />
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Cancel
-          </Button>
-        </Modal.Footer>
-      </Modal>
+<Button onClick={() => setDisplayState(true)}>{!displayState ? "Add a Comment":"Cancel"} </Button>
+          <CommentForm add={addComment} afterUpdate={handleEditComment}post={post} display={!displayState ? "none" : "block"}/>
+          <Button> Cancel </Button>
 
 <div>
 {renderComments()}
