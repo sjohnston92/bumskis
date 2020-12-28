@@ -37,6 +37,7 @@ const Comments = ({post}) => {
     setComments(comments.filter((comment)=> comment.id !== id))
   }
 
+
   const addComment = (comment) => {
     setComments([comment,...comments])
   }
