@@ -38,7 +38,7 @@ const getRightNav = () => {
 
 
 return (
-<Navbar collapseOnSelect expand="lg">
+<Navbar collapseOnSelect >
 
   <Col>
     <Navbar.Brand href="/"><img style={{width:"200px"}}src={Logo}/></Navbar.Brand>
@@ -46,12 +46,9 @@ return (
   <Col>
     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
     <Navbar.Collapse id="responsive-navbar-nav">
-    <Nav  activeKey="/home">
+    <Nav  activeKey="/">
   <Nav.Item>
-    <Nav.Link href="/">Home</Nav.Link>
-  </Nav.Item>
-  <Nav.Item>
-    <Nav.Link href="/search">Search</Nav.Link>
+    <Nav.Link href="/how_it_works">HOW IT WORKS</Nav.Link>
   </Nav.Item>
   <NavDropdown title="BumSkis Profile" id="basic-nav-dropdown">
   {getRightNav()}

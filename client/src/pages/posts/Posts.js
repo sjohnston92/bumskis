@@ -43,7 +43,9 @@ const Posts = () => {
   return(
   <>
   <Row>
-    <Button onClick={handlePostFormOpen}>Add Post</Button>
+    <ButtonCont>
+      <Button variant="success"onClick={handlePostFormOpen}>Add Post</Button>
+    </ButtonCont>
   <Modal show={showPostForm} onHide={handlePostFormClose}>
         <Modal.Header closeButton>
           <Modal.Title>Add your Listing!</Modal.Title>
@@ -67,6 +69,16 @@ const Posts = () => {
   </>
   );
 };
+
+const ButtonCont = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top:25%;
+  margin-bottom:25%;
+  display: block;
+
+`;
 
 const StyledPost = styled.div`
   display: flex;
