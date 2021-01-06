@@ -47,10 +47,10 @@ const How = () =>(
       </Col>
       <Col>
       <StyledImage1 url={SnowBoard}/>
-      
-      
       </Col>
     </Row>
+    <br />
+    <br />
 
   </Container>
   </>
@@ -69,7 +69,8 @@ justify-content: center;
 align-items: center;
 width: 500px;
 height: 400px;
-background:red;
+background-color:#2491D9;
+opacity: 0.7;
 `
 const StyledText2 = styled.div`
 text-align:center;
@@ -79,7 +80,8 @@ justify-content: center;
 align-items: center;
 width: 500px;
 height: 400px;
-background:red;
+background-color:#f7436a;
+opacity: 0.7;
 `
 
 const StyledImage1 = styled.div`

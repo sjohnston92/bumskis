@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import Comments from "../comments/Comments";
+import {FaMapMarkerAlt,FaRulerHorizontal} from "react-icons/fa";
 import CommentForm from "../comments/CommentForm"
 
 import { Row, Col,Container, Button ,Modal} from "react-bootstrap";
@@ -59,10 +60,11 @@ const PostView = ({ match,history }) => {
           <ProductImage url="https://images.unsplash.com/photo-1498146831523-fbe41acdc5ad?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NXx8c25vd2JvYXJkfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"/>
         </Col>
         <Col>
-          <h1>Title:{post.title}</h1>
-          <h2>${post.price}</h2>
-          <h3>Size:{post.size}</h3>
-          <h3>Description:{post.body}</h3>
+          <h1>${post.price}</h1>
+          <h1>{post.title}</h1>
+          <h6>{post.body}</h6>
+          <h3><FaMapMarkerAlt />{post.location}</h3>
+          <h3><FaRulerHorizontal/> Size:{post.size}</h3>
          <Button onClick={handleEditPostFormOpen}>Edit Post</Button> 
              <Modal show={showEditPostForm} onHide={handleEditPostFormClose}>
               <Modal.Header closeButton>
