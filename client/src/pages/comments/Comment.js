@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import axios from "axios";
-import {Button,Modal} from "react-bootstrap";
+import {Button,Modal,Row,Col} from "react-bootstrap";
 import styled from "styled-components";
 import CommentForm from "./CommentForm"
 
@@ -30,9 +30,8 @@ const Comment = ({comment,deleteComment,editComment,post}) => {
 
 return(
   <>
-  <h4>We need to bring in user information
-       right here  </h4>
-
+  <Row style={{justifyContent:"center", alignItems:"center"}}>
+  <StyledCommentBody>
   <h5>{comment.price}</h5>
   <p>{comment.body}</p>
   <Button varient="warning"onClick={handleEditShow}>Edit</Button>
@@ -62,12 +61,40 @@ return(
           </Button>
         </Modal.Footer>
       </Modal>
+    </StyledCommentBody>
+    <StyledCommentTriangle />
+    <CommentUser />
+    </Row>
 
   </>
 )
 
 }
 
+
+const StyledCommentBody = styled.div`
+  margin-top: 15px;
+  margin-botton: 15px;
+  margin-left: 15px;
+  background-color: lightgrey;
+  border-radius: 25px;
+  width:300px;
+`;
+
+const StyledCommentTriangle = styled.div`
+  width: 0; 
+  height: 0; 
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid lightgrey;
+`;
+
+const CommentUser= styled.div`
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  background:red;
+`;
 
 
 export default Comment;
