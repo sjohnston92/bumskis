@@ -4,6 +4,7 @@ import styled from "styled-components";
 import {Button,Modal,Row} from 'react-bootstrap'
 import Post from "./Post";
 import PostForm from "./PostForm"
+import {FaCommentDollar} from "react-icons/fa";
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
@@ -42,8 +43,9 @@ const Posts = () => {
 
   return(
   <>
-  <Row>
-    <Button onClick={handlePostFormOpen}>Add Post</Button>
+  <Row style={{justifyContent:'center',width:'100%', margin:'15px'}}>
+      <Button block variant="success"onClick={handlePostFormOpen}><FaCommentDollar style={{margin:'5px'}}/>ADD POST</Button>
+  
   <Modal show={showPostForm} onHide={handlePostFormClose}>
         <Modal.Header closeButton>
           <Modal.Title>Add your Listing!</Modal.Title>
@@ -67,6 +69,15 @@ const Posts = () => {
   </>
   );
 };
+
+const ButtonCont = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top:25%;
+  margin-bottom:25%;
+
+`;
 
 const StyledPost = styled.div`
   display: flex;

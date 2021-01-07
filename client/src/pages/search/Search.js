@@ -1,22 +1,22 @@
 import React from "react";
-import { Row, Col,Button } from "react-bootstrap";
+import { Row, Col,Button,Container } from "react-bootstrap";
 import Map from "../../components/Map.js";
 import Posts from "../posts/Posts.js";
 
 const Search = () => {
   return (
-    <>
+    <Container>
+      <Row style={{ justifyContent: "center" }}>
+        <Map />
+      </Row>
       <Row>
-        <Col sm={8} style={{ justifyContent: "center" }}>
+        <Col style={{ justifyContent: "center" }}>
           <Row>
             <Posts />
           </Row>
         </Col>
-        <Col sm={4}>
-          <Map />
-        </Col>
       </Row>
-    </>
+    </Container>
   );
 };
 

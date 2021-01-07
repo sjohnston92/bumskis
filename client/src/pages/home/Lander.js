@@ -1,30 +1,26 @@
 import React,{useState} from 'react';
-import {Form,Container,Row,Col} from 'react-bootstrap';
+import {Form,Container,Row} from 'react-bootstrap';
 import { useHistory } from "react-router-dom";
 import styled from "styled-components"
 import SnowStorm from "react-snowstorm"
-import ReactCardFlip from 'react-card-flip';
+import Ride from '../../components/images/ride.png'
 
 
 const Lander = () => {
   const [query, setQuery] = useState("");
   const history = useHistory();
-  const [isFlipped, setIsFlipped] = useState(false)
 
   const handleSubmit = (e) => {
     e.preventDefault();
     history.push(`/search?name=${query}`);
   };
 
-  const handleFlip = () =>{
-  setIsFlipped(!isFlipped)
-  }
 
 
 
   return(
   
-  <div >
+  <>
     <SnowStorm />
     <Container>
     <div className="landing">
@@ -49,40 +45,33 @@ const Lander = () => {
         </Form.Group>
       </Form>
       </div>
-     
-      <ReactCardFlip isFlipped = {isFlipped} flipDirection="vertical">
-      <Wrapper style={{borderRadius:"25px"}}  onClick={handleFlip}>
-        <Row>
-         <h1 style={{color:"white",fontFamily: "Permanent Marker !important"}}>How to use BumSkis</h1>
-        </Row>
-
-      </Wrapper>
-      <Wrapper style={{borderRadius:"25px"}}  onClick={handleFlip}>
-        <Row>
-          <Col>
-          <h1 style={{color:"white"}}>1.</h1>
-          <p style={{color:"white",fontFamily: "Permanent Marker"}}>Create an accont with us</p>
-          </Col>
-          <Col>
-          <h1 style={{color:"white"}}>2.</h1>
-          <p style={{color:"white",fontFamily: "Permanent Marker"}}>Make a post about your gear</p>
-          </Col>
-          <Col>
-          <h1 style={{color:"white"}}>3.</h1>
-          <p style={{color:"white",fontFamily: "Permanent Marker"}}>Wait for the money to come in!</p>
-          </Col>
-        </Row>
-
-      </Wrapper>
-      </ReactCardFlip>
       </Container>
-  </div>
+      <Row>
+      <StyledPromo url={Ride}>
+        <StyledPromoText>
+         <p> Enjoy your Winter with BumSkis</p> 
+        </StyledPromoText>
+      </StyledPromo>
+      </Row>
+  </>
   )
 }
 
 const MainInput = styled(Form.Control)`
   padding: 1.5rem;
   border-radius: 15px 50px;
+`;
+
+const StyledPromo = styled.div`
+  margin-top: .5%;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 600px;
+  background-image: url(${(props) => props.url});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 `;
 
 const StyledSearchBody = styled.div`
@@ -100,12 +89,6 @@ const StyledSearchBody = styled.div`
  
 `;
 
-
-
-
-
-
-
 const StyledSearchText = styled.div`
   display: flex;
   justify-content: center;
@@ -121,6 +104,23 @@ const StyledSearchText = styled.div`
   font-size: 40px;
   line-height: 44px;
   margin-bottom: 1rem;
+  padding: 0 0.5rem;
+`;
+
+
+const StyledPromoText = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-family: 'Permanent Marker', cursive !important;
+  color: white;
+  text-align:center;
+  margin-bottom: 1rem;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 80px;
+  line-height: 44px;
+  margin-top: 25rem;
   padding: 0 0.5rem;
 `;
 
