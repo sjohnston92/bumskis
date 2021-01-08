@@ -66,7 +66,7 @@ const PostView = ({ match,history }) => {
           <h3><FaMapMarkerAlt />{post.location}</h3>
           <h3><FaRulerHorizontal/> Size:{post.size}</h3>
           <Dropdown>
-            <Dropdown.Toggle variant="success" id="dropdown-basic">
+            <Dropdown.Toggle variant="secondary" id="dropdown-basic">
                 Action
             </Dropdown.Toggle>
               <Dropdown.Menu style={{textAlign:'center'}}>
@@ -109,26 +109,12 @@ const PostView = ({ match,history }) => {
         </Col>
       </Row>
       <Row>
-        <CommentArea>
           <Comments  post={match.params.id}/>
-        </CommentArea>
+       
       </Row>
     </Container>
   );
 };
-
-const CommentArea = styled.div`
-  justify-content: center;
-  text-align:center;
-  display: flex;
-  width:90%;
-  flex-direction: column;
-  transition: 0.3s;
-  box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.35);
-  border-radius: 30px;
-  margin: 1rem;
-`;
-
 
 const ProductImage = styled.div`
   width: 400px;

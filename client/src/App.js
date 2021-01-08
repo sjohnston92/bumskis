@@ -24,12 +24,12 @@ const App = () => (
       <br />
 
       <Switch>
+        <Route exact path="/" component={Home} />
         <Route exact path="/home" component={Home} />
         <Route exact path="/how_it_works" component={How} />
         <Route path="/search" component={Search} />
         <Route exact path="/post/:id" component={PostView} />
         <Route path="/map" component={Map} />
-        <Route exact path="/" component={Lander} />
         <Route exact path="/profile" component={UserProfile}/>
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />

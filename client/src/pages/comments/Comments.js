@@ -1,9 +1,10 @@
 import React,{useState,useEffect} from 'react';
 import axios from "axios"
-import {Button} from 'react-bootstrap'
+import {Button,Modal,Row} from 'react-bootstrap'
 import styled from "styled-components"
-import Comment from './Comment'
+import Comment from './Comment';
 import CommentForm from './CommentForm'
+import {FaCommentsDollar} from "react-icons/fa";
 
 
 
@@ -64,18 +65,46 @@ const Comments = ({post}) => {
 
 return (
 <>
-<Button onClick={() => setDisplayState(true)}>{!displayState ? "Add a Comment":"Cancel"} </Button>
-          <CommentForm add={addComment} afterUpdate={handleEditComment}post={post} display={!displayState ? "none" : "block"}/>
-          <Button> Cancel </Button>
+<Row style={{justifyContent:'center',width:'90%', margin:'15px'}}>
+<Button block variant="success" onClick={handleShow}>
+          <FaCommentsDollar style={{margin:'5px', fontSize:'25px'}}/> Add A Comment
+      </Button>
 
-<div>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Leave a Comment</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <CommentForm style ={{width:'40px'}}add={addComment} afterUpdate={handleEditComment}post={post} display={!displayState ? "none" : "block"}/>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Cancel
+          </Button>
+        </Modal.Footer>
+      </Modal>
+</Row>
+<CommentArea>
 {renderComments()}
-</div>
+</CommentArea>
 </>
 )
 
-
 }
+
+
+const CommentArea = styled.div`
+  justify-content: center;
+  padding-bottom: 15px;
+  text-align:center;
+  display: flex;
+  width:90%;
+  flex-direction: column;
+  transition: 0.3s;
+  box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.35);
+  border-radius: 30px;
+  margin: 1rem;
+`;
 
 
 

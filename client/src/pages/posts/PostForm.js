@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useContext, useState } from 'react';
-import { Form, Button, Modal } from 'react-bootstrap';
+import { Form, Button, Row, Col } from 'react-bootstrap';
 import {AuthContext} from "../../providers/AuthProvider"
 
 
@@ -11,6 +11,7 @@ const PostForm = ({post, hide, add,edit}) =>{
     post ? {
       user_id: auth.user.id,
       price: post.price,
+      body: post.body,
       title: post.title,
       location: post.location,
       size: post.size,
@@ -19,6 +20,7 @@ const PostForm = ({post, hide, add,edit}) =>{
 
       price: 0,
       title: '',
+      body:'',
       location: '',
       size: '',
       user_id: auth.user.id,
@@ -78,12 +80,14 @@ const PostForm = ({post, hide, add,edit}) =>{
       </Form.Group>
       <Form.Group>
       <Form.Label>Image</Form.Label>
-      <Form.Control
+      <Form.File
       name="image"
       value={postState.image}
       onChange={handleChange}
       />
       </Form.Group>
+      <Row>
+        <Col>
        <Form.Group>
       <Form.Label>Price</Form.Label>
       <Form.Control
@@ -92,6 +96,8 @@ const PostForm = ({post, hide, add,edit}) =>{
       onChange={handleChange}
       />
       </Form.Group>
+      </Col>
+      <Col>
        <Form.Group>
       <Form.Label>Location</Form.Label>
       <Form.Control
@@ -100,11 +106,24 @@ const PostForm = ({post, hide, add,edit}) =>{
       onChange={handleChange}
       />
       </Form.Group>
+      </Col>
+      <Col>
       <Form.Group>
       <Form.Label>Size</Form.Label>
       <Form.Control
       name="size"
       value={postState.size}
+      onChange={handleChange}
+      />
+      </Form.Group>
+      </Col>
+      </Row>
+      <Form.Group>
+      <Form.Label>Description</Form.Label>
+      <Form.Control
+      style={{height:'100px'}}
+      name="body"
+      value={postState.body}
       onChange={handleChange}
       />
       </Form.Group>

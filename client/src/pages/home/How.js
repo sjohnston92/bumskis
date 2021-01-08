@@ -11,7 +11,10 @@ const How = () =>(
   <>
   <SnowStorm />
   <Container>
-    <Row>
+    <Row style={{textAlign:'center'}}>
+      <HeadText style={{marginLeft:"20%"}}>
+        How to use Bumskis
+      </HeadText>
     <IntroText>
     Ever wish you could actually get great afforable gear instead of buying it fullprice at the resort? Now, you can. 
     Bumskis connects you to people allowing you to easily shop from skiers and snowboarders closets.
@@ -22,7 +25,11 @@ const How = () =>(
     <Row>
       <Col>
       <StyledText1>
-        Some text goes here
+        <Text>
+        <p style={{paddingTop:'100px'}}>
+          1) First dig through your closet or basement and find your Winter gear your ready to part with!
+        </p>
+        </Text>
       </StyledText1>
       </Col>
       <Col>
@@ -35,14 +42,22 @@ const How = () =>(
       </Col>
       <Col>
       <StyledText2>
-        Some text goes here
+      <Text>
+        <p style={{paddingTop:'110px'}}>
+          2) Then Take a picture of your gear and fill out are short little form about your gear
+        </p>
+        </Text>
       </StyledText2>
       </Col>
     </Row>
     <Row>
       <Col>
       <StyledText1>
-        Some text goes here
+      <Text>
+        <p style={{paddingTop:'100px'}}>
+         3) Wait for a comment to get your gear out the door so you can go back to enjoying your winter!
+        </p>
+        </Text>
       </StyledText1>
       </Col>
       <Col>
@@ -59,6 +74,28 @@ const IntroText = styled.div`
   text-align:center;
   margin-left: 100px;
   margin-right: 100px;
+  font-family: sans-serif;
+`;
+
+const HeadText =styled.div`
+  display:flex;
+  justify-content: center;
+  font-size: 50px;
+  test-align:center;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  font-weight: 1100;
+`
+
+
+const Text = styled.div`
+  text-align:center;
+  color:white;
+  font-size:30px;
+  padding-right:15px;
+  padding-left:15px;
+  font-family: 'Permanent Marker', cursive !important;
 `;
 
 const StyledText1 = styled.div`

@@ -1,8 +1,10 @@
 import React,{useState,useEffect} from 'react';
 import axios from "axios";
-import {Button,Modal,Row,Col} from "react-bootstrap";
+import {Button,Modal,Row,Dropdown} from "react-bootstrap";
 import styled from "styled-components";
-import CommentForm from "./CommentForm"
+import CommentForm from "./CommentForm";
+import {FaEllipsisH} from "react-icons/fa";
+
 
 
 const Comment = ({comment,deleteComment,editComment,post}) => {
@@ -34,7 +36,16 @@ return(
   <StyledCommentBody>
   <h5>{comment.price}</h5>
   <p>{comment.body}</p>
-  <Button varient="warning"onClick={handleEditShow}>Edit</Button>
+  <Dropdown>
+  <Dropdown.Toggle variant="secondary" id="dropdown-basic">
+    <FaEllipsisH/>
+  </Dropdown.Toggle>
+
+  <Dropdown.Menu>
+    <Dropdown.Item style={{color:'gold'}}onClick={handleEditShow}>Edit Comment</Dropdown.Item>
+    <Dropdown.Item style={{color:'red'}}onClick={handleShow}>Delete Comment</Dropdown.Item>
+  </Dropdown.Menu>
+</Dropdown>
   <Modal show={editShow} onHide={handleEditClose}>
         <Modal.Header closeButton>
         </Modal.Header>
@@ -47,7 +58,6 @@ return(
           </Button>
         </Modal.Footer>
       </Modal>
-  <Button  varient="danger" onClick={handleShow}>Delete</Button>
   <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
         </Modal.Header>

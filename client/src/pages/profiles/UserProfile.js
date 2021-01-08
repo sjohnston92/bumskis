@@ -34,7 +34,6 @@ const UserProfile =()=>{
         <PostForm />
       </Modal.Body>
       <Modal.Footer>
-      <Button addPost={addPost} userID={user}> Add Post</Button>
         <Button variant="secondary" onClick={handleClose}>Cancel</Button>
       </Modal.Footer> 
 

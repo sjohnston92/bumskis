@@ -11,7 +11,7 @@ const CommentForm = ({post,add,commentProp,afterUpdate}) =>{
      body: commentProp.body, 
      user_id: auth.user.id,}
     :
-    {price:"", 
+    {price:0, 
      body:"",
      user_id: auth.user.id,}
     )
@@ -67,6 +67,7 @@ const CommentForm = ({post,add,commentProp,afterUpdate}) =>{
       <Form.Control
       autoFocus
       name="price"
+      placeholder="Your bid...."
       value={comment.price}
       onChange={handleChange}
       />
@@ -77,6 +78,7 @@ const CommentForm = ({post,add,commentProp,afterUpdate}) =>{
       autoFocus
       placeholder="Leave a comment here...."
       name="body"
+      style={{height:'100px'}}
       value={comment.body}
       onChange={handleChange}
       />

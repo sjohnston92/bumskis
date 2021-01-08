@@ -5,6 +5,7 @@ import {Button,Modal,Row} from 'react-bootstrap'
 import Post from "./Post";
 import PostForm from "./PostForm"
 import {FaCommentDollar} from "react-icons/fa";
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
