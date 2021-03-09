@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { Row, Col } from "react-bootstrap";
-import { FaHeart, FaCommentDots } from "react-icons/fa";
+import {Container } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
+import {FaMapMarkerAlt,FaRulerHorizontal} from "react-icons/fa";
 
 const Post = ({ post }) => {
   const history = useHistory();
@@ -22,18 +22,19 @@ const Post = ({ post }) => {
   return (
     <StyledPost onClick={routeChange}>
       <PostImage url="https://images.unsplash.com/photo-1498146831523-fbe41acdc5ad?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NXx8c25vd2JvYXJkfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" />
-      <PostTitle>{post.title}</PostTitle>
-      <p style={{ width: "200px" }}>
-        Price: ${post.price}
+      <Container>
+        <PriceNumber>${post.price}</PriceNumber>
+        <PostTitle>{post.title}</PostTitle>
+        <p style={{fontSize:'8px',textAlign:'center', marginBottom: '0px'}}>{post.body}</p>
+        <PostBody>
         <br/>
-        Location:{post.location}
+        <FaMapMarkerAlt />{post.location}
         <br/>
-        Size:{post.size}
-      </p>
-      <FaRow>
-        <FaHeart onClick={heartPost} />
-        <FaCommentDots onClick={viewComments} />
-      </FaRow>
+        <FaRulerHorizontal/> Size:{post.size}
+        </PostBody>
+        
+      
+      </Container>
     </StyledPost>
   );
 };
@@ -64,17 +65,12 @@ const PostImage = styled.div`
   background-position: center;
 `;
 
-const FaRow = styled.div`
-  text-align: center;
-  width: 100%;
-  bottom: 0;
-  justify-content: space-between;
-`;
 
 const PostTitle = styled.div`
+  text-align:center;
   font-style: normal;
   font-weight: bold;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 20px;
   overflow: hidden;
   white-space: nowrap;
@@ -84,14 +80,27 @@ const PostTitle = styled.div`
   padding-right: 20px;
 `;
 
-const PostBody = styled.p`
+const PriceNumber = styled.div`
   font-style: normal;
-  font-weight: normal;
-  font-size: 12px;
-  line-height: 20px;
+  font-weight: bold;
+  font-size: 30px;
   white-space: nowrap;
+  text-overflow: ellipsis;
+  padding-top: 10px;
   padding-left: 15px;
   padding-right: 20px;
+`;
+
+const PostBody = styled.p`
+ font-style: normal;
+ font-weight: bold;
+ font-size: 14px;
+ overflow: hidden;
+ white-space: nowrap;
+ text-overflow: ellipsis;
+ text-align:center;
+ padding-left: 15px;
+ padding-right: 20px;
 `;
 
 export default Post;

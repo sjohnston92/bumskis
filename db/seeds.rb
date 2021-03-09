@@ -13,17 +13,18 @@ puts "Seeding..."
   )
   puts user.email + " created"
 
-  10.times do |p|
+  8.times do |p|
     post = Post.create(
       title: Faker::Commerce.product_name,
       # body: Faker::Hipster.paragraph,
       sold: true,
       location: "Salt Lake, UT",
       price: 69,
+      body: Faker::TvShows::MichaelScott.quote,
       size: rand(1..3),
       user_id: user.id,
     )
-    5.times do |c|
+    2.times do |c|
     comment = Comment.create(
       post_id: p,
       body: Faker::Quotes::Shakespeare.hamlet_quote,

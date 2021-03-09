@@ -47,10 +47,17 @@ const How = () =>(
       </Col>
       <Col>
       <StyledImage1 url={SnowBoard}/>
+<<<<<<< HEAD
       
       
       </Col>
     </Row>
+=======
+      </Col>
+    </Row>
+    <br />
+    <br />
+>>>>>>> 57c96f94349d31fd7aba4d6d3b750117f80bc293
 
   </Container>
   </>
@@ -69,7 +76,12 @@ justify-content: center;
 align-items: center;
 width: 500px;
 height: 400px;
+<<<<<<< HEAD
 background:red;
+=======
+background-color:#2491D9;
+opacity: 0.7;
+>>>>>>> 57c96f94349d31fd7aba4d6d3b750117f80bc293
 `
 const StyledText2 = styled.div`
 text-align:center;
@@ -79,7 +91,12 @@ justify-content: center;
 align-items: center;
 width: 500px;
 height: 400px;
+<<<<<<< HEAD
 background:red;
+=======
+background-color:#f7436a;
+opacity: 0.7;
+>>>>>>> 57c96f94349d31fd7aba4d6d3b750117f80bc293
 `
 
 const StyledImage1 = styled.div`
